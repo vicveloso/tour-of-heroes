@@ -1,0 +1,23 @@
+/* Application Styles */
+h1 {
+    color: rgb(5, 38, 82);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:600;
+    font-size: 250%;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: 'Montserrat', sans-serif;    
+    font-weight: lighter;
+  }
+  body {
+    margin: 2em;
+  }
+  body, input[type="text"], button {
+    color: #333;
+    font-family: 'Montserrat', sans-serif;    
+  }
+  /* everywhere else */
+  * {
+    font-family: 'Montserrat', sans-serif;    
+  }
