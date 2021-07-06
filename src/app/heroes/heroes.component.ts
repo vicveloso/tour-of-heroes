@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+//importando matriz que está no arquivo "mock-heroes"
 import { HEROES } from '../mock-heroes';
 
 @Component({

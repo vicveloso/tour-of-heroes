@@ -7,13 +7,6 @@
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
-
-
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{selectedHero.id}}</div>
-<div>
-  <label for="hero-name">Hero name: </label>
-  <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-</div>
-</div>
+<!-- vincular logica ao arquivo de hero-detail, o que significa que quando clicar em um hero conforme função
+acima os detalhes aparecendo na tela conforme função presente no arquivo hero-detail -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
