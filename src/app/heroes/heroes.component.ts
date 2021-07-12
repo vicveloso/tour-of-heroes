@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Hero } from '../hero';
 //importando matriz que está no arquivo "mock-heroes": import { HEROES } from '../mock-heroes';
 //importando matriz que está no arquivo "hero.service"
@@ -10,10 +11,11 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.scss']
 })
 
-export class HeroesComponent implements OnInit {
+export class HeroesComponent implements OnInit, OnDestroy {
   selectedHero ? : Hero;
 
   heroes: Hero[] = [];
+  subscription!: Subscription;
 
   constructor(private heroService: HeroService) {}
 
@@ -24,11 +26,14 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(response => this.heroes = response);
+    this.subscription = this.heroService.getHeroes().subscribe(response => this.heroes = response);
 
     // Usando Promise:
     // this.heroService.getHeroes().toPromise().then(response => {
     //   this.heroes = response;
     // });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
